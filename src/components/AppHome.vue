@@ -3,6 +3,7 @@ import {store} from "../store.js";
 import axios from "axios";
 import AppHeader from "./AppHeader.vue";
 import TVheader from "./TVheader.vue";
+import AppLogo from "./AppLogo.vue";
 export default {
     data() {
         return {
@@ -17,6 +18,7 @@ export default {
     components: {
         AppHeader,
         TVheader,
+        AppLogo,
     },
 
     methods: {
@@ -42,29 +44,42 @@ export default {
 </script>
 
 <template>
+    <AppLogo></AppLogo>
+    <h2>Cosa vuoi guardare?</h2>
     <div id="btn-container">
-        <button @click="choseBtnMovie = !choseBtnMovie" id="film-btn">FILM</button>
-        <button @click="choseBtnShow = !choseBtnShow" id="show-btn">SERIE TV</button>
-        <AppHeader v-show="!choseBtnMovie" @searchMovieTitle="searchMovieTitle()"></AppHeader>
-        <TVheader v-show="!choseBtnShow" @searchShowTitle="searchShowTitle()"></TVheader>
+        <button @click="choseBtnMovie = !choseBtnMovie" id="film-btn"><span>FILM</span></button>
+        <button @click="choseBtnShow = !choseBtnShow" id="show-btn"><span>SERIE TV</span></button>
     </div>
+    <AppHeader v-show="!choseBtnMovie" @searchMovieTitle="searchMovieTitle()"></AppHeader>
+    <TVheader v-show="!choseBtnShow" @searchShowTitle="searchShowTitle()"></TVheader>
 </template>
 
 <style lang="scss" scoped>
+    h2 {
+        text-align: center;
+        padding-top: 30px;
+    }
     #btn-container {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 50px;
+        padding-top: 100px;
         #film-btn {
             width: 500px;
             height: 500px;
             border-radius: 50px;
+            border: none;
         }
         #show-btn {
             width: 500px;
             height: 500px;
             border-radius: 50px;
+            border: none;
+        }
+        span {
+            font-size: 4em;
+            font-weight: bold;
         }
     }
 </style>
