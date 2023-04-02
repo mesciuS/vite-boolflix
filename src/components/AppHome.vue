@@ -47,8 +47,8 @@ export default {
     <AppLogo></AppLogo>
     <h2>Cosa vuoi guardare?</h2>
     <div id="btn-container">
-        <button @click="choseBtnMovie = !choseBtnMovie" id="film-btn"><span>FILM</span></button>
-        <button @click="choseBtnShow = !choseBtnShow" id="show-btn"><span>SERIE TV</span></button>
+        <button @click="choseBtnMovie = !choseBtnMovie" v-show="choseBtnMovie" id="film-btn"><span>FILM</span></button>
+        <button @click="choseBtnShow = !choseBtnShow" v-show="choseBtnShow" id="show-btn"><span>SERIE TV</span></button>
     </div>
     <AppHeader v-show="!choseBtnMovie" @searchMovieTitle="searchMovieTitle()"></AppHeader>
     <TVheader v-show="!choseBtnShow" @searchShowTitle="searchShowTitle()"></TVheader>

@@ -34,7 +34,7 @@ export default {
 </script>
 
 <template>
-    <div>
+    <div id="tv-card">
         <img :src="'https://image.tmdb.org/t/p/w342' + show.poster_path" alt="">
         <br>
         <em>Titolo:</em> <strong>{{ show.original_name }}</strong>
@@ -47,5 +47,13 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-   
+   #tv-card {
+    width: 342px;
+    height: 513px;
+    border: 2px solid white;
+   }
+   img {
+    width: 100%;
+    height: 100%;
+   }
 </style>
