@@ -25,5 +25,11 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+  #movies-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 100px;
+  }
 </style>

@@ -41,14 +41,14 @@ export default {
             </div>
             <div id="movie-card-back">
                 <ul>
-                    <li><em>Titolo:</em></li>
-                    <li><strong>{{ movie.title }}</strong></li>
-                    <li><em>Titolo originale:</em></li>
-                    <li><strong>{{ movie.original_title }}</strong></li>
-                    <li><em>Lingua originale:</em></li>
+                    <li><strong>Titolo:</strong></li>
+                    <li>{{ movie.title }}</li>
+                    <li><strong>Lingua originale:</strong></li>
                     <li><span :class="`fi fi-${flags()}`"></span></li>
-                    <li><em>Voto medio:</em></li>
-                    <li><strong>{{ movie.vote_average }}</strong></li>
+                    <li><strong>Voto medio:</strong></li>
+                    <li>{{ movie.vote_average }}</li>
+                    <li><strong>Sinossi:</strong></li>
+                    <li>{{ movie.overview }}</li>
                 </ul> 
             </div>
         </div>
@@ -72,6 +72,7 @@ export default {
             text-align: center;
             transition: transform 1s;
             transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             &:hover {
             transform: rotateY(180deg);
             }

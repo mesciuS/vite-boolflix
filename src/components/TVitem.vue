@@ -41,12 +41,14 @@ export default {
             </div>
             <div id="tv-card-back">
                 <ul>
-                    <li><em>Titolo:</em></li>
-                    <li><strong>{{ show.original_name }}</strong></li>
-                    <li><em>Lingua originale:</em></li>
+                    <li><strong>Titolo:</strong></li>
+                    <li>{{ show.original_name }}</li>
+                    <li><strong>Lingua originale:</strong></li>
                     <li><span :class="`fi fi-${TVflags()}`"></span></li>
-                    <li><em>Voto medio:</em></li>
-                    <li><strong>{{ show.vote_average }}</strong></li>
+                    <li><strong>Voto medio:</strong></li>
+                    <li>{{ show.vote_average }}</li>
+                    <li><strong>Sinossi:</strong></li>
+                    <li>{{ show.overview }}</li>
                 </ul>
             </div>
         </div>
@@ -64,12 +66,13 @@ export default {
             }
         }
         #tv-card-inner{
-            position: relative;
+            position: relative; 
             width: 100%;
             height: 100%;
             text-align: center;
             transition: transform 1s;
             transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             &:hover {
             transform: rotateY(180deg);
             }
