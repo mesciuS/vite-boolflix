@@ -30,6 +30,12 @@ export default {
         }
     },
 
+    computed: {
+        numToStars() {
+            return Math.ceil(this.show.vote_average / 2);
+        }
+    }
+
 }
 </script>
 
@@ -46,7 +52,7 @@ export default {
                     <li><strong>Lingua originale:</strong></li>
                     <li><span :class="`fi fi-${TVflags()}`"></span></li>
                     <li><strong>Voto medio:</strong></li>
-                    <li>{{ show.vote_average }}</li>
+                    <li><i v-for="number in numToStars" class="fa-solid fa-star"></i><i v-for="number in 5 - numToStars" class="fa-regular fa-star"></i></li>
                     <li><strong>Sinossi:</strong></li>
                     <li>{{ show.overview }}</li>
                 </ul>
@@ -60,6 +66,7 @@ export default {
     width: 342px;
     height: 513px;
     border: 2px solid white;
+    border-radius: 15px;
         #tv-card {
             &:hover{
                 transform: rotateY(180deg);
@@ -80,6 +87,7 @@ export default {
             position: absolute;
             width: 100%;
             height: 100%;
+            border-radius: 15px;
             backface-visibility: hidden;
         }
         #tv-card-back {
@@ -89,11 +97,15 @@ export default {
             background-color: #141414;
             color: white;
             transform: rotateY(180deg);
+            i {
+                color: #fadb10;
+            }
         }
 
    }
    img {
     width: 100%;
     height: 100%;
+    border-radius: 15px;
    }
 </style>
