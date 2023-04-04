@@ -2,7 +2,6 @@
 import {store} from "../store.js";
 import axios from "axios";
 import AppHeader from "./AppHeader.vue";
-import TVheader from "./TVheader.vue";
 import AppLogo from "./AppLogo.vue";
 export default {
     data() {
@@ -17,23 +16,24 @@ export default {
     
     components: {
         AppHeader,
-        TVheader,
         AppLogo,
     },
 
     methods: {
+        search() {
+            this.searchMovieTitle();
+            this.searchShowTitle();
+        },
         searchMovieTitle() {
-            // cambiato il path per restituire tv e film ma funzione rimasta uguale
             this.store.APIpath = '/search/movie';
-            this.store.APIquery = '&query=' + encodeURIComponent(this.store.searchMovie);
+            this.store.APIquery = '&query=' + encodeURIComponent(this.store.searchEntertainment);
             axios.get(this.store.APIcall + this.store.APIpath + this.store.APIkey + this.store.APIquery).then((res) => {
                 this.store.movies = res.data.results;
             });
         },
         searchShowTitle() {
-            // cambiato il path per restituire tv e film ma funzione rimasta uguale
             this.store.APItvpath = '/search/tv';
-            this.store.APIquery = '&query=' + encodeURIComponent(this.store.searchShow);
+            this.store.APIquery = '&query=' + encodeURIComponent(this.store.searchEntertainment);
             axios.get(this.store.APIcall + this.store.APItvpath + this.store.APIkey + this.store.APIquery).then((tvres) => {
                 this.store.series = tvres.data.results;
             });
@@ -48,10 +48,9 @@ export default {
     <h2>Cosa vuoi guardare?</h2>
     <div id="btn-container">
         <button @click="choseBtnMovie = !choseBtnMovie" v-show="choseBtnMovie" id="film-btn"><span>FILM</span></button>
-        <button @click="choseBtnShow = !choseBtnShow" v-show="choseBtnShow" id="show-btn"><span>SERIE TV</span></button>
+        <button @click="choseBtnMovie = !choseBtnMovie" v-show="choseBtnMovie" id="show-btn"><span>SERIE TV</span></button>
     </div>
-    <AppHeader v-show="!choseBtnMovie" @searchMovieTitle="searchMovieTitle()"></AppHeader>
-    <TVheader v-show="!choseBtnShow" @searchShowTitle="searchShowTitle()"></TVheader>
+    <AppHeader v-show="!choseBtnMovie" @searchEntertainmentTitle="search()"></AppHeader>
 </template>
 
 <style lang="scss" scoped>

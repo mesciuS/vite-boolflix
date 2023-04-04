@@ -7,6 +7,5 @@ export const store = reactive ({
     APIquery: "",
     movies: [],
     series: [],
-    searchMovie: "",
-    searchShow: "",
+    searchEntertainment: "",
 })

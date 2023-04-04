@@ -7,15 +7,15 @@ export default {
         }
     },
 
-    emits: ['searchMovieTitle'], 
+    emits: ['searchEntertainmentTitle'], 
 
 }
 </script>
 
 <template>
   <div id="searchbar">
-    <input v-model="store.searchMovie" @keyup.enter="$emit('searchMovieTitle')" type="text" placeholder="Cerca un Film">
-    <button @click="('searchMovieTitle')">Cerca</button> 
+    <input v-model="store.searchEntertainment" @keyup.enter="$emit('searchEntertainmentTitle')" type="text" placeholder="Cerca qualcosa">
+    <button @click="('searchEntertainmentTitle')">Cerca</button> 
   </div>
 </template>
 
